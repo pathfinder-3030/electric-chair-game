@@ -20,32 +20,20 @@ export default function Home() {
   });
 
   return (
-    <main
-      style={{
-        padding: "2rem",
-        maxWidth: "600px",
-        margin: "0 auto",
-        fontFamily: "sans-serif",
-      }}
-    >
-      <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>⚡ 電気いすゲーム ⚡</h1>
+    <div className='min-h-screen  text-white'>
+      <div className='w-full max-w-xl p-6'>
+        <h1 className='text-3xl font-bold mb-6 text-center text-co '>⚡ 電気イスゲーム ⚡</h1>
 
-      <ScoreBoard state={gameState} />
+        <ScoreBoard state={gameState} />
 
-      <ChairGrid state={gameState} setState={setGameState} />
+        <ChairGrid state={gameState} setState={setGameState} />
 
-      <GameControls state={gameState} setState={setGameState} />
+        <GameControls state={gameState} setState={setGameState} />
 
-      <p
-        style={{
-          marginTop: "1rem",
-          padding: "0.5rem",
-          backgroundColor: "#eee",
-          borderRadius: "4px",
-        }}
-      >
-        {gameState.statusMessage}
-      </p>
-    </main>
+        <p className='mt-4 p-3 bg-gray-800 rounded text-sm text-center'>
+          {gameState.statusMessage}
+        </p>
+      </div>
+    </div>
   );
 }
