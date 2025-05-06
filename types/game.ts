@@ -1,9 +1,10 @@
 export type Phase = "表の攻撃" | "裏の攻撃";
 
 export interface PlayerState {
-  score: number; // 現在のポイント
-  shocks: number; // 電撃を受けた回数
-  chosenChairs: number[]; // これまでに選んだ椅子
+  score: number;
+  shocks: number;
+  chosenChairs: number[];
+  roundScores: (number | null)[];
 }
 
 export interface GameState {

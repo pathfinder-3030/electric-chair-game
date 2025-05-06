@@ -12,8 +12,18 @@ export default function Home() {
     phase: "表の攻撃",
     round: 1,
     currentTurn: "Player1",
-    player1: { score: 0, shocks: 0, chosenChairs: [] },
-    player2: { score: 0, shocks: 0, chosenChairs: [] },
+    player1: {
+      score: 0,
+      shocks: 0,
+      chosenChairs: [],
+      roundScores: Array(8).fill(null),
+    },
+    player2: {
+      score: 0,
+      shocks: 0,
+      chosenChairs: [],
+      roundScores: Array(8).fill(null),
+    },
     usedChairs: [],
     chairWithElectricity: null,
     statusMessage: "表の攻撃：プレイヤー1が椅子を選んでください。",
@@ -26,8 +36,6 @@ export default function Home() {
           ⚡ 電気イスゲーム ⚡
         </h1>
 
-        <ScoreBoard state={gameState} />
-
         <ChairGrid state={gameState} setState={setGameState} />
 
         <GameControls state={gameState} setState={setGameState} />
@@ -35,6 +43,7 @@ export default function Home() {
         <p className='mt-4 p-3 bg-gray-800 rounded text-sm text-center text-white'>
           {gameState.statusMessage}
         </p>
+        <ScoreBoard state={gameState} />
       </div>
     </div>
   );
