@@ -17,33 +17,18 @@ export default function ChairGrid({ state, setState }: Props) {
   };
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 80px)",
-        gap: "12px",
-        margin: "1rem 0",
-      }}
-    >
-      {Array.from({ length: 12 }, (_, i) => i + 1).map((num) => {
-        const isUsed = state.usedChairs.includes(num);
-        return (
+    <div className='grid grid-cols-4 gap-3 my-4'>
+      {Array.from({ length: 12 }, (_, i) => i + 1)
+        .filter((num) => !state.usedChairs.includes(num))
+        .map((num) => (
           <button
             key={num}
             onClick={() => handleClick(num)}
-            disabled={isUsed}
-            style={{
-              height: "80px",
-              background: isUsed ? "#ccc" : "#f8d",
-              borderRadius: "8px",
-              fontWeight: "bold",
-              cursor: isUsed ? "not-allowed" : "pointer",
-            }}
+            className='h-20 rounded font-bold bg-pink-300 hover:bg-pink-400 transition'
           >
             {num}
           </button>
-        );
-      })}
+        ))}
     </div>
   );
 }

@@ -20,9 +20,11 @@ export default function Home() {
   });
 
   return (
-    <div className='min-h-screen  text-white'>
+    <div className='min-h-screen  '>
       <div className='w-full max-w-xl p-6'>
-        <h1 className='text-3xl font-bold mb-6 text-center text-co '>⚡ 電気イスゲーム ⚡</h1>
+        <h1 className='text-3xl font-bold mb-6 text-center text-co text-white'>
+          ⚡ 電気イスゲーム ⚡
+        </h1>
 
         <ScoreBoard state={gameState} />
 
@@ -30,7 +32,7 @@ export default function Home() {
 
         <GameControls state={gameState} setState={setGameState} />
 
-        <p className='mt-4 p-3 bg-gray-800 rounded text-sm text-center'>
+        <p className='mt-4 p-3 bg-gray-800 rounded text-sm text-center text-white'>
           {gameState.statusMessage}
         </p>
       </div>
