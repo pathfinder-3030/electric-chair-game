@@ -16,4 +16,5 @@ export interface GameState {
   usedChairs: number[]; // 使用済みの椅子
   chairWithElectricity: number | null; // 電流を流した椅子の番号（nullなら未選択）
   statusMessage: string; // 現在のステータスメッセージ
+  winner: "Player1" | "Player2" | null; // 勝者（nullなら未決定）
 }
