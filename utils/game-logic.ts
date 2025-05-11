@@ -27,7 +27,7 @@ export function processTurn(state: GameState, selectedChair: number): ProcessTur
     if (currentTurn === "Player1") {
       newState.chairWithElectricity = selectedChair;
       newState.currentTurn = "Player2";
-      newState.statusMessage = `プレイヤー1が電流椅子を選びました。次はプレイヤー2が座る椅子を選んでください。`;
+      newState.statusMessage = `プレイヤー1が電流椅子を選びました。\n次はプレイヤー2が座る椅子を選んでください。`;
     } else if (currentTurn === "Player2") {
       const hit = selectedChair === chairWithElectricity;
       if (hit) {
@@ -58,7 +58,7 @@ export function processTurn(state: GameState, selectedChair: number): ProcessTur
     if (currentTurn === "Player2") {
       newState.chairWithElectricity = selectedChair;
       newState.currentTurn = "Player1";
-      newState.statusMessage = `プレイヤー2が電流椅子を選びました。次はプレイヤー1が座る椅子を選んでください。`;
+      newState.statusMessage = `プレイヤー2が電流椅子を選びました。\n次はプレイヤー1が座る椅子を選んでください。`;
     } else if (currentTurn === "Player1") {
       const hit = selectedChair === chairWithElectricity;
       if (hit) {

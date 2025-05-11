@@ -13,7 +13,7 @@ export default function ScoreBoard({ state }: Props) {
   const roundHeaders = Array.from({ length: maxRounds }, (_, i) => `R${i + 1}`);
 
   return (
-    <div className='mb-4 overflow-x-auto'>
+    <div className='mt-5 overflow-x-auto'>
       <table className='table-auto border-collapse w-full text-sm'>
         <thead>
           <tr>

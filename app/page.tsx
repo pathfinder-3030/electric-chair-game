@@ -44,10 +44,9 @@ export default function Home() {
 
         <ChairGrid state={gameState} setState={setGameState} />
 
-        <p className='mt-4 p-3 bg-gray-800 rounded text-sm text-center text-white'>
-          {gameState.statusMessage}
-        </p>
-
+        <div className='flex justify-center items-center bg-gray-800 py-2 h-15 rounded-md'>
+          <p className='text-white whitespace-pre-line'>{gameState.statusMessage}</p>
+        </div>
         <ScoreBoard state={gameState} />
       </div>
 
