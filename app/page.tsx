@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { GameState } from "@/types/game";
 import ScoreBoard from "./components/score-board";
 import ChairGrid from "./components/chair-grid";
-import GameControls from "./components/game-controls";
 
 export default function Home() {
   const [gameState, setGameState] = useState<GameState>({
@@ -39,14 +38,11 @@ export default function Home() {
   }, [gameState.winner]);
 
   return (
-    <div className='min-h-screen relative'>
-      <div className='w-full max-w-xl p-6 mx-auto'>
-        <h1 className='text-3xl font-bold mb-6 text-center text-co text-white'>
-          ⚡ 電気イスゲーム ⚡
-        </h1>
+    <div className='min-h-screen flex items-center justify-center bg-black  relative'>
+      <div className='w-full max-w-xl p-6'>
+        <h1 className='text-3xl font-bold mb-6 text-center text-white'>⚡ 電気イスゲーム ⚡</h1>
 
         <ChairGrid state={gameState} setState={setGameState} />
-        <GameControls state={gameState} setState={setGameState} />
 
         <p className='mt-4 p-3 bg-gray-800 rounded text-sm text-center text-white'>
           {gameState.statusMessage}

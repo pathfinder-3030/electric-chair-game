@@ -23,15 +23,12 @@ export function processTurn(state: GameState, selectedChair: number): ProcessTur
     return { updatedState: newState };
   }
 
-  // 表の攻撃
   if (phase === "表の攻撃") {
     if (currentTurn === "Player1") {
-      // プレイヤー1が電流を流す椅子を選んだ
       newState.chairWithElectricity = selectedChair;
       newState.currentTurn = "Player2";
       newState.statusMessage = `プレイヤー1が電流椅子を選びました。次はプレイヤー2が座る椅子を選んでください。`;
     } else if (currentTurn === "Player2") {
-      // プレイヤー2が座る椅子を選んだ
       const hit = selectedChair === chairWithElectricity;
       if (hit) {
         newState.player2.shocks += 1;
@@ -47,7 +44,6 @@ export function processTurn(state: GameState, selectedChair: number): ProcessTur
         newState.statusMessage = `⚡ セーフ！プレイヤー2は ${selectedChair} 点を獲得！`;
       }
 
-      // ラウンドスコア記録
       const updatedScores = [...newState.player2.roundScores];
       updatedScores[newState.round - 1] = hit ? 0 : selectedChair;
       newState.player2.roundScores = updatedScores;
@@ -58,10 +54,7 @@ export function processTurn(state: GameState, selectedChair: number): ProcessTur
       newState.currentTurn = "Player2";
       newState.chairWithElectricity = null;
     }
-  }
-
-  // 裏の攻撃
-  else if (phase === "裏の攻撃") {
+  } else if (phase === "裏の攻撃") {
     if (currentTurn === "Player2") {
       newState.chairWithElectricity = selectedChair;
       newState.currentTurn = "Player1";
